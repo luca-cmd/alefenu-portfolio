@@ -1,8 +1,16 @@
-import '../styles/globals.css'
-import type { AppProps } from 'next/app'
+import '../styles/globals.css';
+import type { AppProps } from 'next/app';
+import Layout from '../components/Layout/Main';
+import NavBar from '../components/NavBar/Main';
 
 function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+	return (
+		<Layout title='Alefenu'>
+			<NavBar />
+
+			<Component {...pageProps} />
+		</Layout>
+	);
 }
 
-export default MyApp
+export default MyApp;
