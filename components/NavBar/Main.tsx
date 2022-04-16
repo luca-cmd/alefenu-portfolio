@@ -1,48 +1,57 @@
-import Link from 'next/link';
 import Image from 'next/image';
-import React, { Ref, useRef, useState } from 'react';
-
-// `
+import React, { useRef, useState } from 'react';
+import { FaHamburger } from 'react-icons/fa';
+import { NavLinks, HamburgerLinks } from '../NavLinks/Main';
 
 const Logo: React.FC = () => (
-	<div className='flex items-center justify-around w-[10%]'>
-		<Image src={'/images/math.svg'} alt={'math'} height={32} width={32} />
+	<div className='flex items-center justify-around'>
+		<div className='hidden md:flex mr-2 justify-center items-center'>
+			<Image
+				className='hover:-rotate-[30deg] transition-all'
+				src={'/images/math.svg'}
+				alt={'math'}
+				height={32}
+				width={32}
+			/>
+		</div>
+
 		<p className='text-lg'>Alefenu</p>
 	</div>
 );
 
-const NavBar: React.FC = () => {
-	const aboutRef = useRef();
-	const workRef = useRef();
-	const [active, setActive] = useState(aboutRef);
+const Hamburger: React.FC = () => {
+	const [open, setOpen] = useState(false);
+	const buttonRef = useRef<HTMLButtonElement | null>(null);
+
+	const handleChange = () => {
+		setOpen(!open);
+
+		if (!buttonRef.current) return;
+		if (open === true) return buttonRef.current.blur();
+
+		buttonRef.current.focus();
+	};
 
 	return (
-		<nav className='flex w-[100%] h-12 items-center justify-around fixed bg-transparent'>
+		<button
+			className='sm:hidden flex justify-center items-center p-4 border-[1px] border-slate-400 rounded-xl relative focus:outline focus:outline-blue-400 focus:border-none transition-all'
+			onClick={handleChange}
+			ref={buttonRef}
+		>
+			<FaHamburger />
+
+			{open ? <HamburgerLinks setOpen={setOpen} /> : ''}
+		</button>
+	);
+};
+
+const NavBar: React.FC = () => {
+	return (
+		<nav className='flex w-screen h-16 items-center sm:justify-around fixed bg-transparent justify-between px-6'>
 			<Logo />
-			<ul className='flex w-[20%] justify-between items-center'>
-				<li className='cursor-pointer'>
-					<div
-						className={`h-8 w-20 transition-all flex justify-center items-center
-							${active == aboutRef ? 'bg-blue-400 rounded-2xl ' : 'bg-white'}`}
-						onClick={() => setActive(aboutRef)}
-					>
-						<Link href={'/'}>
-							<a>about</a>
-						</Link>{' '}
-					</div>
-				</li>
-				<li className='cursor-pointer'>
-					<div
-						className={`h-8 w-20 transition-all flex justify-center items-center
-							${active == workRef ? 'bg-blue-400 rounded-2xl ' : 'bg-white'}`}
-						onClick={() => setActive(workRef)}
-					>
-						<Link href={'/work'}>
-							<a>work</a>
-						</Link>{' '}
-					</div>
-				</li>
-			</ul>
+
+			<NavLinks />
+			<Hamburger />
 		</nav>
 	);
 };

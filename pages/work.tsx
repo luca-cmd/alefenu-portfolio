@@ -28,10 +28,10 @@ const WorkPage: React.FC = () => {
 	];
 
 	return (
-		<div className='flex w-[100%] h-screen justify-center items-center p-12 flex-col'>
-			<h1 className='text-3xl z-10 mb-6'>Usefull links</h1>
-			<div className='flex justify-around items-center w-[40%]'>
-				<div className='flex flex-col'>
+		<div className='flex w-[100%] h-[100vh] justify-center items-center p-12 flex-col overflow-hidden'>
+			<h1 className='text-3xl mb-6'>Usefull links</h1>
+			<div className='lg:flex justify-around items-center w-96'>
+				<div className='flex flex-col text-center lg:text-left'>
 					{linksColumn1.map((site) => (
 						<p
 							className='cursor-pointer text-lg text-slate-700'
@@ -44,7 +44,7 @@ const WorkPage: React.FC = () => {
 					))}
 				</div>
 
-				<div className='flex flex-col'>
+				<div className='flex flex-col text-center lg:text-left'>
 					{linksColumn2.map((site) => (
 						<p
 							className='cursor-pointer text-lg text-slate-700 '

@@ -17,7 +17,7 @@ const mateLinks: React.FC = () => {
 
 	return (
 		<div className='flex w-[100%] h-screen justify-center items-center p-12 flex-col'>
-			<h1 className='text-3xl z-10 mb-6'>Math</h1>
+			<h1 className='text-3xl mb-6'>Math</h1>
 			<div className='flex justify-center items-center w-[40%] flex-col'>
 				{pdfs.map((file) => (
 					<Link href={'/pdfs/' + file + '.pdf'} key={file}>
