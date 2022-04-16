@@ -1,8 +1,9 @@
 import Link from 'next/link';
+import Layout from '../components/Layout/Layout';
 
 const WorkPage: React.FC = () => {
 	const linksColumn1 = [
-		{ name: 'c algorithm', link: '' },
+		{ name: 'c algorithm', link: '/others/cAlgoritms.c' },
 		{ name: 'Math', link: '/mateLinks' },
 		{
 			name: 'drive one',
@@ -28,36 +29,38 @@ const WorkPage: React.FC = () => {
 	];
 
 	return (
-		<div className='flex w-[100%] h-[100vh] justify-center items-center p-12 flex-col overflow-hidden'>
-			<h1 className='text-3xl mb-6'>Usefull links</h1>
-			<div className='lg:flex justify-around items-center w-96'>
-				<div className='flex flex-col text-center lg:text-left'>
-					{linksColumn1.map((site) => (
-						<p
-							className='cursor-pointer text-lg text-slate-700'
-							key={site.name}
-						>
-							<Link href={site.link}>
-								<a>{site.name}</a>
-							</Link>
-						</p>
-					))}
-				</div>
+		<Layout title='Work'>
+			<div className='flex w-[100%] h-[100vh] justify-center items-center p-12 flex-col overflow-hidden'>
+				<h1 className='text-3xl mb-6'>Usefull links</h1>
+				<div className='flex justify-around items-center w-96 lg:flex-row flex-col'>
+					<div className='flex flex-col text-center lg:text-left w-48'>
+						{linksColumn1.map((site) => (
+							<p
+								className='cursor-pointer text-lg text-slate-700'
+								key={site.name}
+							>
+								<Link href={site.link}>
+									<a>{site.name}</a>
+								</Link>
+							</p>
+						))}
+					</div>
 
-				<div className='flex flex-col text-center lg:text-left'>
-					{linksColumn2.map((site) => (
-						<p
-							className='cursor-pointer text-lg text-slate-700 '
-							key={site.name}
-						>
-							<Link href={site.link}>
-								<a>{site.name}</a>
-							</Link>
-						</p>
-					))}
+					<div className='flex flex-col text-center lg:text-left w-48'>
+						{linksColumn2.map((site) => (
+							<p
+								className='cursor-pointer text-lg text-slate-700 '
+								key={site.name}
+							>
+								<Link href={site.link}>
+									<a>{site.name}</a>
+								</Link>
+							</p>
+						))}
+					</div>
 				</div>
 			</div>
-		</div>
+		</Layout>
 	);
 };
 

@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { useState } from 'react';
 
 type activeLink = 'About' | 'Work';
 
@@ -13,8 +12,12 @@ const links: Array<LinksType> = [
 	{ name: 'Work', link: '/work' },
 ];
 
-export const NavLinks: React.FC = () => {
-	const [active, setActive] = useState<activeLink>('About');
+interface Links {
+	path: string;
+}
+
+export const NavLinks: React.FC<Links> = (props) => {
+	const { path } = props;
 
 	return (
 		<ul className='sm:flex w-[20%] justify-between items-center hidden'>
@@ -22,15 +25,10 @@ export const NavLinks: React.FC = () => {
 				<li className='cursor-pointer' key={link.name}>
 					<div
 						className={`h-8 w-20 transition-all flex justify-center items-center
-							${active == link.name ? 'bg-blue-400 rounded-2xl ' : 'bg-white'}`}
+							${path == link.link ? 'bg-blue-400 rounded-2xl ' : 'bg-white'}`}
 					>
 						<Link href={link.link}>
-							<a
-								onClick={() => setActive(link.name)}
-								className={'outline-none'}
-							>
-								{link.name}
-							</a>
+							<a className={'outline-none'}>{link.name}</a>
 						</Link>{' '}
 					</div>
 				</li>

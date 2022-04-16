@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import React, { useRef, useState } from 'react';
 import { FaHamburger } from 'react-icons/fa';
 import { NavLinks, HamburgerLinks } from '../NavLinks/Main';
@@ -15,7 +16,9 @@ const Logo: React.FC = () => (
 			/>
 		</div>
 
-		<p className='text-lg'>Alefenu</p>
+		<Link href={'/'}>
+			<a className='text-lg outline-none'>Alefenu</a>
+		</Link>
 	</div>
 );
 
@@ -39,18 +42,22 @@ const Hamburger: React.FC = () => {
 			ref={buttonRef}
 		>
 			<FaHamburger />
-
 			{open ? <HamburgerLinks setOpen={setOpen} /> : ''}
 		</button>
 	);
 };
 
-const NavBar: React.FC = () => {
+interface Props {
+	path: string;
+}
+
+const NavBar: React.FC<Props> = (props) => {
+	const { path } = props;
 	return (
 		<nav className='flex w-screen h-16 items-center sm:justify-around fixed bg-transparent justify-between px-6'>
 			<Logo />
 
-			<NavLinks />
+			<NavLinks path={path} />
 			<Hamburger />
 		</nav>
 	);
