@@ -22,11 +22,14 @@ const mateLinks: React.FC = () => {
 				<h1 className='text-3xl mb-6'>Math</h1>
 				<div className='flex justify-center items-center w-[40%] flex-col'>
 					{pdfs.map((file) => (
-						<Link href={'/pdfs/' + file + '.pdf'} key={file}>
-							<a className='text-lg md:text-left text-center text-slate-700'>
-								{file}
-							</a>
-						</Link>
+						<div key={file} className='flex flex-col justify-center'>
+							<Link href={'/pdfs/' + file + '.pdf'}>
+								<a className='text-lg text-center text-slate-700 p-[2px]'>
+									{file}
+								</a>
+							</Link>
+							<hr className='w-44 border-[1px] border-slate-100' />
+						</div>
 					))}
 				</div>
 			</div>

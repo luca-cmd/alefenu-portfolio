@@ -25,7 +25,7 @@ export const NavLinks: React.FC<Links> = (props) => {
 				<li className='cursor-pointer' key={link.name}>
 					<div
 						className={`h-8 w-20 transition-all flex justify-center items-center
-							${path == link.link ? 'bg-blue-400 rounded-2xl ' : 'bg-white'}`}
+							${path == link.link ? 'bg-blue-400 rounded-2xl ' : 'bg-transparent'}`}
 					>
 						<Link href={link.link}>
 							<a className={'outline-none'}>{link.name}</a>
@@ -44,8 +44,8 @@ interface HamburgerLinksProps {
 export const HamburgerLinks: React.FC<HamburgerLinksProps> = (props) => {
 	const { setOpen } = props;
 	return (
-		<div className='absolute z-10 top-14 bg-blue-100 border-2 border-blue-200 rounded-xl right-0 w-48 transition-all'>
-			<ul className='w-48 p-2 text-left'>
+		<div className='absolute z-10 top-14 bg-slate-100 border-2 border-blue-100 rounded-xl right-0 transition-all'>
+			<ul className='w-36 p-2 text-left'>
 				{links.map((link) => (
 					<li className='cursor-pointer py-2 w-[100%]' key={link.name}>
 						<Link href={link.link}>

@@ -40,8 +40,9 @@ const WorkPage: React.FC = () => {
 								key={site.name}
 							>
 								<Link href={site.link}>
-									<a>{site.name}</a>
+									<a className='py-[2px]'>{site.name}</a>
 								</Link>
+								<hr className='w-44 border-[1px] border-slate-100' />
 							</p>
 						))}
 					</div>
@@ -53,8 +54,9 @@ const WorkPage: React.FC = () => {
 								key={site.name}
 							>
 								<Link href={site.link}>
-									<a>{site.name}</a>
+									<a className='py-[2px]'>{site.name}</a>
 								</Link>
+								<hr className='w-44 border-[1px] border-slate-100' />
 							</p>
 						))}
 					</div>
