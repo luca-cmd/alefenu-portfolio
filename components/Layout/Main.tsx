@@ -6,7 +6,7 @@ interface Props {
 }
 
 const Layout: React.FC<Props> = ({ children, title }) => (
-	<main className='xl:overflow-hidden'>
+	<main>
 		<Head>
 			<title>{title}</title>
 			<meta name='viewport' content='width=device-width, initial-scale=1.0' />

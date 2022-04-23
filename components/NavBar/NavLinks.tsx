@@ -44,21 +44,19 @@ interface HamburgerLinksProps {
 export const HamburgerLinks: React.FC<HamburgerLinksProps> = (props) => {
 	const { setOpen } = props;
 	return (
-		<div className='absolute z-10 top-14 bg-slate-100 border-2 border-blue-100 rounded-xl right-0 transition-all'>
-			<ul className='w-36 p-2 text-left'>
-				{links.map((link) => (
-					<li className='cursor-pointer py-2 w-[100%]' key={link.name}>
-						<Link href={link.link}>
-							<a
-								className='outline-none p-2 text-left'
-								onClick={() => setOpen(false)}
-							>
-								{link.name}
-							</a>
-						</Link>{' '}
-					</li>
-				))}
-			</ul>
-		</div>
+		<ul className='absolute z-10 top-14 bg-slate-100 border-2 border-blue-100 rounded-xl right-0 transition-all w-36 p-2 text-left'>
+			{links.map((link) => (
+				<li className='cursor-pointer py-2 w-[100%]' key={link.name}>
+					<Link href={link.link}>
+						<a
+							className='outline-none p-2 text-left'
+							onClick={() => setOpen(false)}
+						>
+							{link.name}
+						</a>
+					</Link>{' '}
+				</li>
+			))}
+		</ul>
 	);
 };

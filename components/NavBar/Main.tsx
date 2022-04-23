@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React, { useRef, useState } from 'react';
 import { FaHamburger } from 'react-icons/fa';
-import { NavLinks, HamburgerLinks } from '../NavLinks/Main';
+import { HamburgerLinks, NavLinks } from './NavLinks';
 
 const Logo: React.FC = () => (
 	<div className='flex items-center justify-around'>
