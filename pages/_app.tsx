@@ -4,15 +4,22 @@ import Layout from '../components/Layout/Main';
 import NavBar from '../components/NavBar/Main';
 import '@fontsource/work-sans';
 import { AnimatePresence } from 'framer-motion';
+import { useState } from 'react';
 
 if (typeof window !== 'undefined') {
 	window.history.scrollRestoration = 'manual';
 }
 
 function MyApp({ Component, pageProps, router }: AppProps) {
+	const [dropDown, setDropDown] = useState(false);
+
 	return (
-		<Layout title='Alefenu'>
-			<NavBar path={router.asPath} />
+		<Layout title='Alefenu' dropDown={dropDown} setDropDown={setDropDown}>
+			<NavBar
+				path={router.asPath}
+				dropDown={dropDown}
+				setDropDown={setDropDown}
+			/>
 			<AnimatePresence
 				exitBeforeEnter
 				initial={true}
@@ -22,7 +29,7 @@ function MyApp({ Component, pageProps, router }: AppProps) {
 					}
 				}}
 			>
-				<Component {...pageProps} />
+				<Component {...pageProps} setDropDown={setDropDown} />
 			</AnimatePresence>
 		</Layout>
 	);

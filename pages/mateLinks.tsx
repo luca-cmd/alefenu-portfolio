@@ -6,7 +6,7 @@ import { mateLinksFiles } from '../lib/links';
 const mateLinks: React.FC = () => {
 	return (
 		<Layout title='Math'>
-			<div className='flex w-[100%] h-screen justify-center items-center p-12 flex-col'>
+			<div className='flex w-[100%] min-h-screen justify-center items-center py-20 flex-col overflow-hidden'>
 				<Title title='Math' />
 				{mateLinksFiles.map((file) => (
 					<div key={file.name} className='flex flex-col justify-center'>

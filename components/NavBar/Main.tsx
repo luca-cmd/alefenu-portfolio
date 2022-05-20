@@ -22,15 +22,15 @@ const Logo: React.FC = () => (
 	</div>
 );
 
-const Hamburger: React.FC = () => {
-	const [open, setOpen] = useState(false);
+const Hamburger: React.FC<Props> = (props) => {
+	const { dropDown, setDropDown } = props;
 	const buttonRef = useRef<HTMLButtonElement | null>(null);
 
 	const handleChange = () => {
-		setOpen(!open);
+		setDropDown(!dropDown);
 
 		if (!buttonRef.current) return;
-		if (open === true) return buttonRef.current.blur();
+		if (dropDown === true) return buttonRef.current.blur();
 
 		buttonRef.current.focus();
 	};
@@ -42,23 +42,25 @@ const Hamburger: React.FC = () => {
 			ref={buttonRef}
 		>
 			<FaHamburger />
-			{open ? <HamburgerLinks setOpen={setOpen} /> : ''}
+			{dropDown ? <HamburgerLinks setOpen={setDropDown} /> : ''}
 		</button>
 	);
 };
 
 interface Props {
 	path: string;
+	dropDown: boolean;
+	setDropDown: Function;
 }
 
 const NavBar: React.FC<Props> = (props) => {
-	const { path } = props;
+	const { path, dropDown, setDropDown } = props;
 	return (
-		<nav className='flex w-screen h-16 items-center sm:justify-around fixed bg-transparent justify-between px-6'>
+		<nav className='flex w-screen h-16 items-center sm:justify-around fixed bg-white/60 justify-between px-6 backdrop-blur-3xl'>
 			<Logo />
 
 			<NavLinks path={path} />
-			<Hamburger />
+			<Hamburger dropDown={dropDown} setDropDown={setDropDown} path='' />
 		</nav>
 	);
 };

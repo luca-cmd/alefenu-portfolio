@@ -10,9 +10,9 @@ const WorkPage: React.FC = () => {
 
 	return (
 		<Layout title='Work'>
-			<div className='flex w-[100%] h-[100vh] justify-center items-center p-12 flex-col overflow-hidden'>
+			<div className='flex w-[100%] min-h-screen justify-center items-center py-20 flex-col overflow-hidden'>
 				<Title title='Usefull links' />
-				<div className='flex justify-around items-start w-96 lg:flex-row flex-col'>
+				<div className='flex justify-around items-start lg:flex-row flex-col'>
 					{totalLinks.map((linksColumn, i) => (
 						<div
 							key={i}
