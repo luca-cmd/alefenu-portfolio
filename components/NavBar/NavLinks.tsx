@@ -1,4 +1,6 @@
+import { AnimatePresence, motion } from 'framer-motion';
 import Link from 'next/link';
+import React from 'react';
 
 type activeLink = 'About' | 'Work';
 
@@ -39,24 +41,44 @@ export const NavLinks: React.FC<Links> = (props) => {
 
 interface HamburgerLinksProps {
 	setOpen: Function;
+	open: boolean;
 }
 
+const variants = {
+	hidden: { opacity: 0, y: -100 },
+	enter: { opacity: 1, y: 0 },
+	exit: { opacity: 0, y: -100 },
+};
+
 export const HamburgerLinks: React.FC<HamburgerLinksProps> = (props) => {
-	const { setOpen } = props;
+	const { setOpen, open } = props;
 	return (
-		<ul className='absolute z-10 top-14 bg-slate-100 border-2 border-blue-100 rounded-xl right-0 transition-all w-36 p-2 text-left'>
-			{links.map((link) => (
-				<li className='cursor-pointer py-2 w-[100%]' key={link.name}>
-					<Link href={link.link}>
-						<a
-							className='outline-none p-2 text-left'
-							onClick={() => setOpen(false)}
-						>
-							{link.name}
-						</a>
-					</Link>{' '}
-				</li>
-			))}
-		</ul>
+		<div>
+			<AnimatePresence>
+				{open && (
+					<motion.ul
+						variants={variants}
+						initial='hidden'
+						animate='enter'
+						exit='exit'
+						transition={{ type: 'spring', duration: 0.06 }}
+						className='absolute z-10 top-14 bg-slate-100 border-2 border-blue-100 rounded-xl right-0 transition-all w-36 p-2 text-left'
+					>
+						{links.map((link) => (
+							<li className='cursor-pointer py-2 w-[100%]' key={link.name}>
+								<Link href={link.link}>
+									<a
+										className='outline-none p-2 text-left'
+										onClick={() => setOpen(false)}
+									>
+										{link.name}
+									</a>
+								</Link>{' '}
+							</li>
+						))}
+					</motion.ul>
+				)}
+			</AnimatePresence>
+		</div>
 	);
 };

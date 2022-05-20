@@ -3,7 +3,7 @@ import type { AppProps } from 'next/app';
 import Layout from '../components/Layout/Main';
 import NavBar from '../components/NavBar/Main';
 import '@fontsource/work-sans';
-import { AnimatePresence } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import { useState } from 'react';
 
 if (typeof window !== 'undefined') {

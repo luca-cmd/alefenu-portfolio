@@ -42,7 +42,7 @@ const Hamburger: React.FC<Props> = (props) => {
 			ref={buttonRef}
 		>
 			<FaHamburger />
-			{dropDown ? <HamburgerLinks setOpen={setDropDown} /> : ''}
+			{dropDown ? <HamburgerLinks setOpen={setDropDown} open={dropDown} /> : ''}
 		</button>
 	);
 };
