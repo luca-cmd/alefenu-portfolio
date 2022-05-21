@@ -30,7 +30,13 @@ export const NavLinks: React.FC<Links> = (props) => {
 							${path == link.link ? 'bg-blue-400 rounded-2xl ' : 'bg-transparent'}`}
 					>
 						<Link href={link.link}>
-							<a className={'outline-none'}>{link.name}</a>
+							<a
+								className={
+									'outline-none hover:underline underline-offset-4 transition-all'
+								}
+							>
+								{link.name}
+							</a>
 						</Link>{' '}
 					</div>
 				</li>
@@ -60,15 +66,15 @@ export const HamburgerLinks: React.FC<HamburgerLinksProps> = (props) => {
 						variants={variants}
 						initial='hidden'
 						animate='enter'
-						exit='exit'
+						exit={{ y: 100 }}
 						transition={{ type: 'spring', duration: 0.06 }}
-						className='absolute z-10 top-14 bg-slate-100 border-2 border-blue-100 rounded-xl right-0 transition-all w-36 p-2 text-left'
+						className='absolute z-10 top-14 bg-white border-2 border-blue-100 rounded-xl right-0 transition-all w-36 p-2 text-left'
 					>
 						{links.map((link) => (
 							<li className='cursor-pointer py-2 w-[100%]' key={link.name}>
 								<Link href={link.link}>
 									<a
-										className='outline-none p-2 text-left'
+										className='outline-none p-2 text-left hover:underline underline-offset-4 transition-all'
 										onClick={() => setOpen(false)}
 									>
 										{link.name}
