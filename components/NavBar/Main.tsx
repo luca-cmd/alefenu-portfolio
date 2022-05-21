@@ -37,7 +37,7 @@ const Hamburger: React.FC<Props> = (props) => {
 
 	return (
 		<button
-			className='sm:hidden flex justify-center items-center p-4 border-[1px] border-slate-400 rounded-xl relative focus:outline focus:outline-blue-200 focus:border-none transition-all'
+			className='sm:hidden flex justify-center items-center p-4 border-[1px] border-slate-400 rounded-xl relative focus:outline focus:outline-blue-400/50 transition-all'
 			onClick={handleChange}
 			ref={buttonRef}
 		>

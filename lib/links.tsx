@@ -26,7 +26,7 @@ export const mateLinksFiles = [
 	{ name: 'garaspano', file: '/pdfs/garaspano.pdf' },
 	{ name: 'Shortlist', file: '/pdfs/Shortlist.pdf' },
 	{ name: 'solgaraspano', file: '/pdfs/solgaraspano.pdf' },
-	{ name: 'spano 22-02-2022', file: '/pdfs/spano 22-02-2.pdf' },
+	{ name: 'spano 22-02-2022', file: '/pdfs/spano 22-02-2022.pdf' },
 	{ name: 'spanolezione1', file: '/pdfs/spanolezione1.pdf' },
 	{ name: 'spanolezione2', file: '/pdfs/spanolezione2.pdf' },
 	{ name: 'spanolezione3', file: '/pdfs/spanolezione3.pdf' },

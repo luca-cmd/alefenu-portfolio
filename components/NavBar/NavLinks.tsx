@@ -56,6 +56,12 @@ const variants = {
 	exit: { opacity: 0, y: -100 },
 };
 
+const variantsChild = {
+	hidden: { opacity: 0, x: 50 },
+	enter: { opacity: 1, x: 0 },
+	exit: { opacity: 0, x: 50 },
+};
+
 export const HamburgerLinks: React.FC<HamburgerLinksProps> = (props) => {
 	const { setOpen, open } = props;
 	return (
@@ -66,12 +72,19 @@ export const HamburgerLinks: React.FC<HamburgerLinksProps> = (props) => {
 						variants={variants}
 						initial='hidden'
 						animate='enter'
-						exit={{ y: 100 }}
-						transition={{ type: 'spring', duration: 0.06 }}
+						transition={{ type: 'easeOut', duration: 0.08 }}
 						className='absolute z-10 top-14 bg-white border-2 border-blue-100 rounded-xl right-0 transition-all w-36 p-2 text-left'
+						key={'list'}
 					>
 						{links.map((link) => (
-							<li className='cursor-pointer py-2 w-[100%]' key={link.name}>
+							<motion.li
+								variants={variantsChild}
+								initial={'hidden'}
+								animate={'enter'}
+								transition={{ type: 'linear', duration: 0.5 }}
+								className='cursor-pointer py-2 w-[100%]'
+								key={link.name}
+							>
 								<Link href={link.link}>
 									<a
 										className='outline-none p-2 text-left hover:underline underline-offset-4 transition-all'
@@ -80,7 +93,7 @@ export const HamburgerLinks: React.FC<HamburgerLinksProps> = (props) => {
 										{link.name}
 									</a>
 								</Link>{' '}
-							</li>
+							</motion.li>
 						))}
 					</motion.ul>
 				)}
