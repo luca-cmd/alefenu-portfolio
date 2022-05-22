@@ -31,7 +31,7 @@ const mateLinks: React.FC = () => {
 							<a className='text-lg text-center text-slate-700 p-[2px]'>
 								{file.name}
 
-								<hr className='w-44 border-[1px] border-slate-100' />
+								<hr className='w-48 border-[1px] border-slate-100' />
 							</a>
 						</Link>
 					</motion.div>

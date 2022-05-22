@@ -3,7 +3,6 @@ import Layout from '../components/Layout/Layout';
 import Title from '../components/Title';
 import { links } from '../lib/links';
 import { motion } from 'framer-motion';
-import { useState } from 'react';
 
 const WorkPage: React.FC = () => {
 	const linksColumn1 = links.slice(0, Math.ceil(links.length / 2));
@@ -23,7 +22,7 @@ const WorkPage: React.FC = () => {
 					{totalLinks.map((linksColumn, i) => (
 						<div
 							key={i}
-							className='flex flex-col justify-center items-center w-48'
+							className='flex flex-col justify-left md:justify-center items-center w-52'
 						>
 							{linksColumn.map((site, index) => (
 								<motion.div
@@ -44,7 +43,7 @@ const WorkPage: React.FC = () => {
 										</Link>
 									</p>
 
-									<hr className='w-44 border-[1px] border-slate-100' />
+									<hr className='w-48 border-[1px] border-slate-100' />
 								</motion.div>
 							))}
 						</div>
